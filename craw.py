@@ -16,6 +16,39 @@ data = urllib.parse.urlencode(values)
 req = urllib.request.Request(url, data)
 req.add_header('Referer', 'http://www.python.org/')
 https://ithelp.ithome.com.tw/articles/10191408
+
+db.getCollection('NBA').find({
+	"content.push":{
+		$elemMatch:{
+			"pushTag":"推 "
+		}
+	}
+})
+
+
+
+//查廢文
+db.getCollection('NBA').find({
+	"content.author":{
+		$eq : "kenny1300175 (蘇湖)"
+	}
+})
+
+
+db.getCollection('NBA').find({
+    "type":"新聞"
+})
+
+
+db.getCollection('NBA').find({
+	"content":{
+		"author":{
+			$eq:"kenny1300175 (蘇湖)"
+		}
+	}
+})
+
+
 """""""""""""""
 conn = MongoClient() ;
 db = conn.craw

@@ -8,8 +8,8 @@ from bson.objectid import ObjectId
 user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
 values = {
           'act' : 'login',
-          'login[email]' : 'yzhang@i9i8.com',
-          'login[password]' : '123456'
+          'login[email]' : '*****',
+          'login[password]' : '****'
          }
 
 data = urllib.parse.urlencode(values)
@@ -30,7 +30,7 @@ db.getCollection('NBA').find({
 //查廢文
 db.getCollection('NBA').find({
 	"content.author":{
-		$eq : "kenny1300175 (蘇湖)"
+		$eq : "PTT id"
 	}
 })
 
@@ -43,7 +43,7 @@ db.getCollection('NBA').find({
 db.getCollection('NBA').find({
 	"content":{
 		"author":{
-			$eq:"kenny1300175 (蘇湖)"
+			$eq:"PTT id"
 		}
 	}
 })

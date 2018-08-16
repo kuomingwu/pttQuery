@@ -15,12 +15,7 @@ values = {
 data = urllib.parse.urlencode(values)
 req = urllib.request.Request(url, data)
 req.add_header('Referer', 'http://www.python.org/')
-抓每個女優的臉 身材資料 和片子
-使用者上傳路人圖片
-自動比對出相似的女優
-
 https://ithelp.ithome.com.tw/articles/10191408
-
 """""""""""""""
 conn = MongoClient() ;
 db = conn.craw
@@ -118,28 +113,3 @@ firstHtml = get_web_page('https://www.ptt.cc/bbs/%s/index.html' %(boardName))
 page = handleHtml(firstHtml , "%s" %(boardName));
 #preLink = page.nextPage()[2].string
 #print("preLink %s" %(preLink))
-
-"""
-conn = MongoClient() ;
-db = conn.craw
-collection = db.ptt
-status = collection.stats
-print(status);
-soup = BeautifulSoup(html, 'html.parser')
-contents = soup.find_all(href=re.compile("\/bbs\/KoreaDrama\/M."))
-all = []
-for content in contents:
-    c = re.match("(.*)\[(.*?)\](.*)",content.string)
-    type = c.group(2)
-    title = c.group(3)
-    d = {
-        "type":type,
-        "title":title
-    }
-    all.append(d)
-    print(c)
-    print(type)
-    print(title)
-
-collection.insert_many(all)
-"""
